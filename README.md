@@ -17,7 +17,8 @@
 ### Association
 
 - has_many :items
-- has_one :purchase_detail
+- has_many :purchase_detail
+
 ## items テーブル
 
 | Column                   | Type       | Options           |
