@@ -8,7 +8,7 @@ RSpec.describe Item, type: :model do
 
   describe '商品出品機能' do
     context '商品が出品できるとき' do
-      it "商品の画像、名前、説明、状態、カテゴリー、発送までの日数、配送料の負担、発送元の地域" do
+      it "商品の画像、名前、説明、状態、カテゴリー、発送までの日数、配送料の負担、発送元の地域が必須" do
         expect(@item).to be_valid
       end
     end
