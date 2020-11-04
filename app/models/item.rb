@@ -7,16 +7,17 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_area
   belongs_to :user
 
-
-  validates :image, presence: true, unless: :was_attached?
-  validates :name, presence: true  
-  validates :description, presence: true
-  validates :category_id, presence: true
-  validates :condition_id, presence: true
-  validates :shipping_charge_id, presence: true
-  validates :shipping_area_id, presence: true
-  validates :delivery_time_id, presence: true
-  validates :selling_price, presence: true
+  with_options presence: true do
+    validates :image, unless: :was_attached?
+    validates :name  
+    validates :description
+    validates :category_id
+    validates :condition_id
+    validates :shipping_charge_id
+    validates :shipping_area_id
+    validates :delivery_time_id
+    validates :selling_price
+  end
   with_options format: { with: /\A[0-9]+\z/} do
     validates :selling_price, numericality: {only_integer: true, greater_than:299,less_than: 9999999}
   end
