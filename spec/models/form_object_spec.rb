@@ -13,6 +13,11 @@ RSpec.describe FormObject, type: :model do
       it "postal_code,prefecture_id,municipality,address,phone_number,tokenが必須" do
         expect(@form_object).to be_valid
       end
+
+      it "building_nameが空でも登録できる" do
+        @form_object.building_name = ""
+        expect(@form_object).to be_valid
+      end
     end
 
     context '商品が購入できないとき' do
