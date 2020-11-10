@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :form_object do
     postal_code {"123-4567"}
-    prefecture_id {"4"}
+    prefecture_id {4}
     municipality {"ズンドゥ区"}
     address {"青山1-1-1"}
     building_name {"ザオリク"}
