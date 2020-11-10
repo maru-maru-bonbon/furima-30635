@@ -4,7 +4,7 @@ class PurchaseDetailsController < ApplicationController
 
   def index
     @form_object = FormObject.new
-    if current_user.id == @items.user.id 
+    if current_user.id == @items.user.id || @items.purchase_detail != nil
       redirect_to root_path
     end
   end
