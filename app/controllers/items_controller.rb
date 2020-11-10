@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
   end
   
   def show
+      
   end
 
   def new
@@ -23,9 +24,11 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    unless current_user == @item.user
+  if user_signed_in? 
+    if current_user.id != @item.user.id || @item.purchase_detail != nil
       redirect_to root_path
     end
+  end
   end
 
   def update
