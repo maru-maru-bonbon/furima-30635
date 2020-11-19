@@ -10,9 +10,9 @@ class FormObject
     validates :phone_number,  numericality: { only_integer: true }
     validates :token
 
-    validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
+    validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "はハイフン(-)を含んで入力して下さい"}
   end
-  validates :prefecture_id, numericality: { other_than: 1 ,message:  "Select"}
+  validates :prefecture_id, numericality: { other_than: 1 ,message:  "を選択して下さい"}
 
   def save
     purchasedetail = PurchaseDetail.create(item_id: item_id, user_id: user_id)
