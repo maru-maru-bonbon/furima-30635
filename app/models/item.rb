@@ -20,9 +20,9 @@ class Item < ApplicationRecord
     validates :selling_price
   end
   with_options format: { with: /\A[0-9]+\z/} do
-    validates :selling_price, numericality: {only_integer: true, greater_than:299,less_than: 9999999}
+    validates :selling_price, numericality: {only_integer: true, greater_than:299,less_than: 9999999 ,message: 'は300〜9,999,999の間で価格を設定して下さい'}
   end
-  validates :category_id, :condition_id, :shipping_area_id, :shipping_charge_id, :delivery_time_id, numericality: { other_than: 1 } 
+  validates :category_id, :condition_id, :shipping_area_id, :shipping_charge_id, :delivery_time_id, numericality: { other_than: 1 ,message: 'を選択して下さい'} 
   has_one_attached :image
   def was_attached?
     self.image.attached?
